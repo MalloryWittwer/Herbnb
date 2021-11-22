@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
-  resources :mowers, only: [:create, :index, :new]
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  resources :mowers do
+    resources :bookings, only: [:edit, :update, :new, :create]
+  end
+
+  resources :users, only: [:show, :edit, :update] # est-ce correct ?
 end
