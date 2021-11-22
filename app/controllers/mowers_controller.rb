@@ -12,6 +12,22 @@ class MowersController < ApplicationController
     @mower.save ? redirect_to mowers_path : render :new
   end
 
+  def edit
+    # TODO
+  end
+
+  def update
+    # TODO
+  end
+
+  def show
+    # TODO
+  end
+
+  def destroy
+    # TODO
+  end
+
   private
 
   def mower_params
