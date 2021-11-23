@@ -2,7 +2,9 @@
   <img src="https://media.gerbeaud.net/2020/02/640/tondeuse-electrique-tractee-viking.jpg" class="card-img-top" alt="Great Lawn mower">
   <div class="card-body">
     <h5 class="card-title"><%= mower.title %></h5>
+    <h2>Owner: <%= mower.user.user_name %></h2>
     <p class="card-text"><%= mower.description %></p>
     <a href="#" class="btn btn-primary">See Availability</a>
+    <span><%= mower.price_per_day %> / day</span>
   </div>
 </div>
