@@ -1,0 +1,50 @@
+.card-mower {
+  width: 400px;
+  margin: 10px;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.card-mower > img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-mower h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-mower p {
+  font-size: 12px;
+  opacity: 0.7;
+  margin: 0;
+}
+
+.card-mower .card-mower-infos {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
+
+.card-mower .card-mower-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-mower-infos .card-mower-user {
+  position: absolute;
+  right: 16px;
+  top: -20px;
+  width: 40px;
+}
+
+.card-mower .btn {
+  margin: 10px;
+}
