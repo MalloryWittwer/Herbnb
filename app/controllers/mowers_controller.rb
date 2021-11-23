@@ -21,7 +21,7 @@ class MowersController < ApplicationController
   end
 
   def show
-    @mower = Mower.find(params[:user_id])
+    @mower = Mower.find(params[:id])
   end
 
   def destroy
