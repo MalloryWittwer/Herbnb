@@ -10,7 +10,8 @@ class MowersController < ApplicationController
   end
 
   def create
-    @mower = mower.new(mower_params)
+    @mower = Mower.new(mower_params)
+    @mower.user = current_user
     @mower.save ? redirect_to(mowers_path) : (render :new)
   end
 
