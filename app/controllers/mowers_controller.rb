@@ -25,6 +25,7 @@ class MowersController < ApplicationController
 
   def show
     @mower = Mower.find(params[:id])
+    @booking = Booking.new
   end
 
   def destroy

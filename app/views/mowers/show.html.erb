@@ -1,7 +1,23 @@
-<div class="main">
-  <h2 class="title"><%= @mower.title %></h2>
-  <h5><%#= @mower.user.adress %></h5>
-  <img src="https://media.gerbeaud.net/2020/02/640/tondeuse-electrique-tractee-viking.jpg" class="card-img-top" alt="Great Lawn mower">
-  <h5 class="price">Price per day: <%= @mower.price_per_day %></h5>
-  <p class="text"><%= @mower.description %></p>
+<div>
+  <h1><%= @mower.title %></h1>
+</div>
+<div class="d-flex justify-content-between">
+  <div>
+    <h5 class="price">Price per day: <%= @mower.price_per_day %></h5>
+    <p> <%= @mower.description %> </p>
+  </div>
+  <div>
+    <%= cl_image_tag @mower.photo.key, height: 300, width: 400, crop: :fill %>
+  </div>
+  <div>
+    <div class="bg-white rounded p-3 shadow">
+      <h3>Book a mower !</h3>
+      <h2><%= @mower.title %></h2>
+      <%= simple_form_for [@mower, @booking] do |f| %>
+        <%= f.input :pickup_date %>
+        <%= f.input :return_date %>
+        <%= f.submit class: 'btn btn-success' %>
+      <% end %>
+    </div>
+  </div>
 </div>
