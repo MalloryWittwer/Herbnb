@@ -1,7 +1,31 @@
+puts "Destroying all Users... 💣"
+User.destroy_all
+
+puts "Creating a seed of 2 fake Users... 🌱"
+[
+  {
+    user_name: "Marcel Bower",
+    address: "Paquerettes 15, Lausanne",
+    email: "mbower@gmail.com",
+    password: "abcdef"
+  },
+  {
+    user_name: "Jane Tarzan",
+    address: "Av. de Beaugiaz 12, Renens",
+    email: "janetarzan@hotmail.com",
+    password: "fedcab"
+  }
+].each_with_index do |user, i|
+  User.create!(user)
+  puts "> Created User ##{i + 1}"
+end
+
+puts "Users table now contains #{User.count} users."
+
 puts "Destroying all Mowers... 💣"
 Mower.destroy_all
 
-puts "Creating a seed of 6 fake Mowers... 🌱"
+puts "Creating a seed of 4 fake Mowers... 🌱"
 [
   {
     title: "Great Lawn Mower",
@@ -18,14 +42,18 @@ puts "Creating a seed of 6 fake Mowers... 🌱"
   {
     title: "So so Lawn Mower",
     description: "This Lawn Mower is both light and efficient. It only weighs 12.3 kg!"
-  },
+  }
 ].each_with_index do |mower_params, i|
-  Mower.create(mower_params)
-  if Mower.save
+  mower = Mower.new(mower_params)
+  mower.user = User.all.sample  # Associate mower to a user randomly
+  mower.save
+  if mower.save
     puts "> Created Mower ##{i + 1}"
   else
-    puts "BIP BIP! Error while saving Mower ##{i + 1}.."
+    puts "Error while saving Mower ##{i + 1}.."
   end
 end
 
-puts "Seeding ended. Mowers table now contains #{Mower.count} mowers. Happy Lawning!"
+puts "Mowers table now contains #{Mower.count} mowers."
+
+puts "Seeding finished 🏁. Happy Lawning!"
