@@ -1,28 +1,21 @@
 <div class="container">
   <h1 class="row justify-content-center">Creating your new mower</h1>
-  <div class="row justify-content-center border">
-    <form>
+    <div class="row justify-content-center border">
       <div class="form-group m-3">
-        <label for="formGroupExampleInput">Mower Title</label>
-        <input type="text" class="form-control" id="title" placeholder="John Deer Q112">
-      </div>
-      <div class="form-group m-3">
-        <label for="formGroupExampleInput2">Description</label>
-        <input type="text" class="form-control" id="description" placeholder="Amazing mower, cut the grass very well and is faster than a F1 car">
-      </div>
-        <div class="form-group m-3">
-        <label for="formGroupExampleInput2">Price per day</label>
-        <input type="text" class="form-control" id="price_per_day" placeholder="130$">
-      </div>
-    </form>
-    <form>
-      <div class="form-group m-3">
-        <label for="exampleFormControlFile1">Add pictures from your amazing mower!</label>
-        <input type="file" class="form-control-file" id="photo">
+        <%= simple_form_for @mower do |f| %>
+        <%= f.input :title, placeholder: 'John Deer Q112' %>
+        <%= f.input :description, placeholder: 'Amazing mower made with gold' %>
+        <%= f.input :price_per_day, placeholder: '150$' %>
+        <% end %>
       </div>
       <div class="form-group m-3">
-        <button type="submit" class="btn btn-primary"> Submit</button>
+        <%= form_with model: @mower do |form| %>
+        <%= "Add picture of the mower" %>
+        <%= form.file_field :picture, placeholder: 'Add picture' %>
+        <% end %>
+        <div class="button">
+          <%= link_to "Submit" %>
+        </div>
       </div>
-    </form>
-  </div>
+    </div>
 </div>
