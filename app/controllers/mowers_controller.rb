@@ -33,6 +33,6 @@ class MowersController < ApplicationController
   private
 
   def mower_params
-    params.require(:mower).permit(:price_per_day, :title, :description)
+    params.require(:mower).permit(:price_per_day, :title, :description, :photo)
   end
 end

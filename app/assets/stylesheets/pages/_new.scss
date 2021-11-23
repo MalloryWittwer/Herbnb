@@ -1,0 +1,28 @@
+// page new for the creation of a mower
+
+.containerr {
+  display: grid;
+  grid-template-columns: [line1] 50px [line2] auto [line3] 50px [end];
+  grid-template-rows: [row1-start] 25% [row1-end] 50% [third-line] 25% [last-line];
+}
+
+.form_new {
+  grid-column-start: 2;
+  grid-column-end: 3;
+}
+
+.button {
+  background-color: rgb(92, 212, 76);
+  color: white;
+  width: 200px;
+  border-radius: 15px;
+  border: none;
+  padding: 10px;
+  margin-top: 20px;
+  text-align: center;
+
+  &:hover {
+    text-decoration: none;
+    background-color: rgb(92, 231, 104);
+  }
+}
