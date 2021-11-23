@@ -1,7 +1,6 @@
 import mapboxgl from "mapbox-gl";
 
-const apiKey =
-  "pk.eyJ1IjoibWFsbG9yeS13aXR0d2VyIiwiYSI6ImNrdm04cXFvYTFkaXgybnRrOHZwd3V6OXQifQ.4A6aU7z25kZ4RpVIa2V47w";
+const apiKey = document.getElementById("map").dataset.mapboxKey;
 
 mapboxgl.accessToken = apiKey;
 
