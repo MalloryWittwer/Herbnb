@@ -28,6 +28,9 @@ gem 'jbuilder', '~> 2.7'
 # Protecting API Key numbers
 gem 'dotenv-rails', groups: [:development, :test]
 
+# Cloudinary photos
+gem 'cloudinary'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 
