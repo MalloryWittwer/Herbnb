@@ -1,3 +1,5 @@
+
+<!--
 <div class="card card-mower">
   <img src="https://media.gerbeaud.net/2020/02/640/tondeuse-electrique-tractee-viking.jpg" class="card-img-top" alt="Great Lawn mower">
   <div class="card-body">
@@ -6,5 +8,18 @@
     <p class="card-text"><%= mower.description %></p>
     <a href="#" class="btn btn-primary">See Availability</a>
     <span><%= mower.price_per_day %> / day</span>
+  </div>
+</div>
+-->
+
+<div class="card-trip card-mower">
+  <img src="https://media.gerbeaud.net/2020/02/640/tondeuse-electrique-tractee-viking.jpg" class="card-img-top" alt="Great Lawn mower">
+  <div class="card-trip-infos">
+    <div>
+      <h2><%= mower.title %></h2>
+      <p><%= mower.description %></p>
+    </div>
+    <h2 class="card-trip-pricing"><%= mower.price_per_day %> / day</h2>
+    <a href="#" class="btn btn-primary">See Availability</a>
   </div>
 </div>
