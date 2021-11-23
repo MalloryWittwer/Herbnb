@@ -1,6 +1,10 @@
 // Specific CSS for your home-page
 body {
   background-color: #c0c0c0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .banner {
@@ -27,6 +31,51 @@ body {
 }
 
 //-----------------------------------------------------
+.global-container {
+  margin: 5px;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+
+.map-container {
+  grid-column: 1;
+  width: 100%;
+  min-width: 400px;
+  height: 800px;
+  background-color: #ffa05c;
+  position: sticky;
+  top: 0;
+}
+
+.index-cards-container {
+  grid-column: 2;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+@media screen and (max-width: 720px) {
+  .global-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .map-container {
+    min-width: unset;
+    width: 100%;
+    height: 300px;
+    position: relative;
+  }
+
+  .index-cards-container {
+    justify-content: center;
+  }
+
+  .card-mower {
+    width: 100%;
+  }
+}
+//-----------------------------------------------------
+
 .footer {
   background: #f4f4f4;
   display: flex;
@@ -36,6 +85,7 @@ body {
   padding: 0px 50px;
   color: rgba(0, 0, 0, 0.3);
   width: 100%;
+  margin-top: auto;
   bottom: 0;
 }
 
@@ -58,4 +108,10 @@ body {
 
 .footer .fa-heart {
   color: #d23333;
+}
+
+.list-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
 }

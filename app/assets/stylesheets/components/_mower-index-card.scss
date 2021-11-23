@@ -1,9 +1,12 @@
 .card-mower {
-  width: 400px;
+  width: 300px;
   margin: 10px;
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .card-mower > img {
@@ -18,18 +21,32 @@
   margin: 0;
 }
 
+.card-mower .card-mower-infos {
+  padding: 16px;
+  display: grid;
+  grid-template-columns: 5fr 1fr;
+  position: relative;
+}
+
+.card-mower-text-container {
+  display: grid;
+  grid-column: 1;
+  text-align: left;
+  margin-left: 10px;
+}
+
+.card-mower-pricing-container {
+  display: grid;
+  grid-column: 2;
+  width: 120px;
+  text-align: right;
+  margin-left: 10px;
+}
+
 .card-mower p {
   font-size: 12px;
   opacity: 0.7;
   margin: 0;
-}
-
-.card-mower .card-mower-infos {
-  padding: 16px;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  position: relative;
 }
 
 .card-mower .card-mower-actions {
@@ -38,12 +55,12 @@
   align-items: center;
 }
 
-.card-mower-infos .card-mower-user {
-  position: absolute;
-  right: 16px;
-  top: -20px;
-  width: 40px;
-}
+// .card-mower-infos .card-mower-user {
+//   position: absolute;
+//   right: 16px;
+//   top: -20px;
+//   width: 40px;
+// }
 
 .card-mower .btn {
   margin: 10px;
