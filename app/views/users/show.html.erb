@@ -6,6 +6,9 @@
     <div class="list-grid">
       <% @user.bookings.each do |booking| %>
         <div class="bg-white rounded shadow mt-2 p-3">
+          <%unless booking.mower.photo.attached?%>
+            <%= cl_image_tag booking.mower.photo.key, class: 'mower-booking-img rounded-top' %>
+          <% end %>
           <h4><%= booking.mower.title %></h4>
           <h5>Owner: <%= booking.mower.user.user_name %></h5>
           <div>Address: <%= booking.mower.user.address%></div>
