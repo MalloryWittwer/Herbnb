@@ -1,6 +1,7 @@
 class Mower < ApplicationRecord
   belongs_to :user
-  has_many :bookings
+  has_many :bookings, dependent: :destroy
   validates :title, presence: true, length: { in: 3..140 }
+  validates :price_per_day, presence: true
   validates :description, length: { maximum: 500 }
 end

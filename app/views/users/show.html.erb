@@ -1,0 +1,15 @@
+<h1><%=@user.user_name%></h1>
+
+<% unless @user.bookings.empty? %>
+  <h2>Bookings</h2>
+  <% @user.bookings.each do |booking| %>
+    <div class="bg-white rounded shadow mt-2 p-3">
+      <h4><%= booking.mower.title %></h4>
+      <h5>Owner: <%= booking.mower.user.user_name %></h5>
+      <strong>Address: <%= booking.mower.user.address%></strong>
+      <span>Pickup date: <%= booking.pickup_date %></span>
+      <span>Return date: <%= booking.return_date %></span>
+      <strong>Total price: <%= booking.price %></strong>
+    </div>
+  <% end %>
+<% end %>
