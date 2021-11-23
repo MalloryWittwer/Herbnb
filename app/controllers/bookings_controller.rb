@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
   def edit
-    #TODO
+    # TODO
   end
 
   def update
