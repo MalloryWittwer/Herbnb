@@ -8,10 +8,22 @@ class BookingsController < ApplicationController
   end
 
   def new
-    # TODO
+    @mower = Mower.find(params[:mower_id])
+    @booking = Booking.new
   end
 
   def create
-    # TODO
+    @booking = Booking.new(booking_params)
+    @mower = Mower.find(params[:mower_id])
+    @booking.mower = @mower
+    @booking.user = User.all.first # change to current_user
+    @booking.price = @mower.price_per_day * (@booking.return_date - @booking.pickup_date)
+    @booking.save ? (redirect_to user_path(@booking.user_id)) : (render :new)
+  end
+
+  private
+
+  def booking_params
+    params.require(:booking).permit(:pickup_date, :return_date, :price)
   end
 end
