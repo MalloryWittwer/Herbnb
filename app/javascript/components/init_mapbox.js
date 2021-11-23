@@ -1,6 +1,5 @@
 import mapboxgl from "mapbox-gl";
 
-// Here add reference to secret mapobx key:
 const apiKey = document.getElementById("map").dataset.mapboxKey;
 
 mapboxgl.accessToken = apiKey;
