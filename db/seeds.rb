@@ -29,19 +29,23 @@ puts "Creating a seed of 4 fake Mowers... 🌱"
 [
   {
     title: "Great Lawn Mower",
-    description: "This Lawn Mower is super efficient. It can mown your green in under 10 minutes!"
+    description: "This Lawn Mower is super efficient. It can mown your green in under 10 minutes!",
+    price_per_day: (50..100).to_a.sample.to_f
   },
   {
     title: "Luxury Lawn Mower",
-    description: "This Lawn Mower is coated in gold. It belonged to King Henri IV."
+    description: "This Lawn Mower is coated in gold. It belonged to King Henri IV.",
+    price_per_day: (50..100).to_a.sample.to_f
   },
   {
     title: "Fabulous Lawn Mower",
-    description: "Chuck Norris would choose this lawn Mower. It is the best lawn mower in town. Good deal! Good deal!"
+    description: "Chuck Norris would choose this lawn Mower. It is the best lawn mower in town. Good deal! Good deal!",
+    price_per_day: (50..100).to_a.sample.to_f
   },
   {
     title: "So so Lawn Mower",
-    description: "This Lawn Mower is both light and efficient. It only weighs 12.3 kg!"
+    description: "This Lawn Mower is both light and efficient. It only weighs 12.3 kg!",
+    price_per_day: (50..100).to_a.sample.to_f
   }
 ].each_with_index do |mower_params, i|
   mower = Mower.new(mower_params)
