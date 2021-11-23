@@ -9,7 +9,8 @@ class MowersController < ApplicationController
 
   def create
     @mower = mower.new(mower_params)
-    # @mower.save ? redirect_to mowers_path : render :new
+    @mower.save
+    redirect_to mowers_path(mower.id)
   end
 
   def edit
@@ -31,6 +32,6 @@ class MowersController < ApplicationController
   private
 
   def mower_params
-    params.require(:mower).permit(:price_per_day, :title, :description)
+    params.require(:mower).permit(:price_per_day, :title, :description, :photo)
   end
 end
