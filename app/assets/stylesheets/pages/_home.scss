@@ -3,7 +3,6 @@ body {
   background-color: #c0c0c0;
 }
 
-
 .banner {
   background-size: cover;
   background-position: center;
@@ -15,7 +14,7 @@ body {
 .banner h1 {
   margin: 0;
   color: white;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
   font-size: 32px;
   font-weight: bold;
 }
@@ -23,24 +22,30 @@ body {
 .banner p {
   font-size: 20px;
   color: white;
-  opacity: .7;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  opacity: 0.7;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
 }
 
 //----------------------------------------------------
 .card-img-top {
-  height: 200px;
+  // height: 200px;
+  width: 100%;
+}
+
+.card-mower {
+  width: 300px;
+  margin: 10px;
 }
 
 //-----------------------------------------------------
 .footer {
-  background: #F4F4F4;
+  background: #f4f4f4;
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 100px;
   padding: 0px 50px;
-  color: rgba(0,0,0,0.3);
+  color: rgba(0, 0, 0, 0.3);
 }
 
 .footer-links {
@@ -61,5 +66,5 @@ body {
 }
 
 .footer .fa-heart {
-  color: #D23333;
+  color: #d23333;
 }

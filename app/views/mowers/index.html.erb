@@ -19,74 +19,23 @@
   </div>
 </div>
 
+<%# Temp: links to example image files of mowers
+https://media.gerbeaud.net/2020/02/640/tondeuse-electrique-tractee-viking.jpg
+https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/mower-1568302588.jpg
+https://www.deere.com/assets/images/region-4/products/mowers/lawn-tractors/x300-series-block-r4g074029-1024x576.jpg
+https://media.gerbeaud.net/2020/02/640/tondeuse-electrique-tractee-viking.jpg
+https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/mower-1568302588.jpg
+https://www.deere.com/assets/images/region-4/products/mowers/lawn-tractors/x300-series-block-r4g074029-1024x576.jpg
+ col-sm-1 col-md-1 col-lg-1 col-xl-1
+ %>
+
 <div class="container mt-5">
   <div class="row">
-    <div class="col-4 ">
-      <div class="card">
-        <img src="https://media.gerbeaud.net/2020/02/640/tondeuse-electrique-tractee-viking.jpg" class="card-img-top" alt="Great Lawn mower">
-        <div class="card-body">
-          <h5 class="card-title">First Lawn mower</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
+    <% @mowers.each do |mower| %>
+      <div class="col">
+        <%= render partial: 'index-card', locals: {mower: mower} %>
       </div>
-    </div>
-    <div class="col-4">
-      <div class="card">
-        <img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/mower-1568302588.jpg" class="card-img-top" alt="Great Lawn mower">
-        <div class="card-body">
-          <h5 class="card-title">First Lawn mower</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-4">
-      <div class="card">
-        <img src="https://www.deere.com/assets/images/region-4/products/mowers/lawn-tractors/x300-series-block-r4g074029-1024x576.jpg"
-         class="card-img-top" alt="Great Lawn mower">
-        <div class="card-body">
-          <h5 class="card-title">First Lawn mower</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="container mt-5">
-  <div class="row">
-    <div class="col-4 ">
-      <div class="card">
-        <img src="https://media.gerbeaud.net/2020/02/640/tondeuse-electrique-tractee-viking.jpg" class="card-img-top" alt="Great Lawn mower">
-        <div class="card-body">
-          <h5 class="card-title">First Lawn mower</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-4">
-      <div class="card">
-        <img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/mower-1568302588.jpg" class="card-img-top" alt="Great Lawn mower">
-        <div class="card-body">
-          <h5 class="card-title">First Lawn mower</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-4">
-      <div class="card">
-        <img src="https://www.deere.com/assets/images/region-4/products/mowers/lawn-tractors/x300-series-block-r4g074029-1024x576.jpg"
-         class="card-img-top" alt="Great Lawn mower">
-        <div class="card-body">
-          <h5 class="card-title">First Lawn mower</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </div>
-    </div>
+    <% end %>
   </div>
 </div>
 
