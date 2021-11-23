@@ -16,7 +16,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @mower = Mower.find(params[:mower_id])
     @booking.mower = @mower
-    @booking.user = User.all.first # change to current_user
+    @booking.user = current_user
     @booking.price = @mower.price_per_day * (@booking.return_date - @booking.pickup_date + 1)
     @booking.save ? (redirect_to user_path(@booking.user_id)) : (render :new)
   end
