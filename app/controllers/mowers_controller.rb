@@ -16,7 +16,7 @@ class MowersController < ApplicationController
   end
 
   def edit
-    # TODO
+    @mower = Mower.find(params[:id])
   end
 
   def update
