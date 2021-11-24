@@ -35,10 +35,19 @@
           <h4><%= mower.title %></h4>
           <div>Address: <%= @user.address%></div>
           <div>Price per day: <%= mower.price_per_day %></div>
-          <div>Next 2 bookings: TODO</div>
           <%= link_to "Delete",
             mower_path(mower.id),
             method: :delete %>
+          <%= link_to "Edit", edit_mower_path(mower) %>
+          <% unless mower.bookings.empty? %>
+            <div><strong>Bookings coming up:</strong></div>
+            <%mower.bookings.each do |booking| %>
+              <div> <strong>Booking with <%= booking.user.user_name %></strong></div>
+              <div>Pickup date: <%= booking.pickup_date %></div>
+              <div>Return date: <%= booking.return_date %></div>
+              <div>Total price: <%= booking.price %></div>
+            <% end %>
+          <% end %>
         </div>
       <% end %>
     </div>
