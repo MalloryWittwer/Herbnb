@@ -28,7 +28,7 @@
       <% @user.mowers.each do |mower| %>
         <div class="bg-white rounded shadow mt-2 p-3">
           <% if mower.photo.key %>
-            <%= cl_image_tag(booking.mower.photo.key, class:"user-cards rounded-top")%>
+            <%= cl_image_tag(mower.photo.key, class:"user-cards rounded-top")%>
           <% else %>
             <img src="https://media.gerbeaud.net/2020/02/640/tondeuse-electrique-tractee-viking.jpg" alt="Great mower", class="user-cards rounded-top">
           <% end %>
