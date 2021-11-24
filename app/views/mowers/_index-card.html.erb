@@ -10,10 +10,10 @@
       <p><%= mower.user.address %></p>
     </div>
     <div class="card-mower-pricing-container">
-      <h2 class="card-mower-pricing">$<%= mower.price_per_day %> per day</h2>
+      <h2 class="card-mower-pricing"><strong>$<%= mower.price_per_day %></strong> / day</h2>
     </div>
   </div>
   <div class="card-mower-actions">
-    <%= link_to("More info", mower_path(mower), class: "btn btn-primary") %>
+    <%= link_to("More info", mower_path(mower), class: "btn-custom") %>
   </div>
 </div>
