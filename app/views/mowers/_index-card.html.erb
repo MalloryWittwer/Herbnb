@@ -1,5 +1,9 @@
 <div class="card-mower card-mower">
-  <img src="https://media.gerbeaud.net/2020/02/640/tondeuse-electrique-tractee-viking.jpg" class="card-img-top" alt="Great Lawn mower">
+  <% if mower.photo.key %>
+    <%= cl_image_tag(mower.photo.key) %>
+  <% else %>
+    <img src="https://media.gerbeaud.net/2020/02/640/tondeuse-electrique-tractee-viking.jpg" alt="Great mower">
+  <% end %>
   <div class="card-mower-infos">
     <div class="card-mower-text-container">
       <h2><%= mower.title %></h2>
