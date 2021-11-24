@@ -1,13 +1,19 @@
 import mapboxgl from "mapbox-gl";
 
 const addMarker = (marker, map) => {
+  // Popup info window:
+  const popup = new mapboxgl.Popup().setHTML(marker.info_window);
+  // Custom marker style:
   const element = document.createElement("div");
   element.className = "marker";
   element.style.backgroundImage = `url('${marker.image_url}')`;
   element.style.backgroundSize = "contain";
-  element.style.width = "25px";
-  element.style.height = "25px";
-  new mapboxgl.Marker(element).setLngLat([marker.lng, marker.lat]).addTo(map);
+  element.style.width = "30px";
+  element.style.height = "30px";
+  new mapboxgl.Marker(element)
+    .setLngLat([marker.lng, marker.lat])
+    .setPopup(popup)
+    .addTo(map);
 };
 
 const fitMapToMarkers = (map, markers) => {
