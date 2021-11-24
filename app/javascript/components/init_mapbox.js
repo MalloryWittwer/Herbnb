@@ -1,9 +1,5 @@
 import mapboxgl from "mapbox-gl";
 
-const apiKey = document.getElementById("map").dataset.mapboxKey;
-
-mapboxgl.accessToken = apiKey;
-
 const createMap = (coords) => {
   return new mapboxgl.Map({
     container: "map",
@@ -28,11 +24,16 @@ const manageLocation = (data) => {
 };
 
 const initMapBox = () => {
-  const place = "Lausanne";
-  const queryURL = `https://api.mapbox.com/geocoding/v5/mapbox.places/${place}.json?access_token=${apiKey}`;
-  fetch(queryURL)
-    .then((r) => r.json())
-    .then((d) => manageLocation(d));
+  const mapElement = document.getElementById("map");
+  if (mapElement) {
+    const apiKey = mapElement.dataset.mapboxKey;
+    mapboxgl.accessToken = apiKey;
+    const place = "Lausanne";
+    const queryURL = `https://api.mapbox.com/geocoding/v5/mapbox.places/${place}.json?access_token=${apiKey}`;
+    fetch(queryURL)
+      .then((r) => r.json())
+      .then((d) => manageLocation(d));
+  }
 };
 
 export { initMapBox };
