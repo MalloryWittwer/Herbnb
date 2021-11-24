@@ -3,8 +3,7 @@ require "open-uri"
 puts "Destroying all Users... 💣"
 User.destroy_all
 
-puts "Creating a seed of 2 fake Users... 🌱"
-[
+users_list = [
   {
     user_name: "Marcel Bower",
     address: "Av. de la Rapille 2, 1008 Prilly",
@@ -41,7 +40,11 @@ puts "Creating a seed of 2 fake Users... 🌱"
     email: "arnold.orbach@gmail.com",
     password: "abcdef"
   }
-].each_with_index do |user, i|
+]
+
+puts "Creating a seed of #{users_list.size} fake Users... 🌱"
+
+users_list.each_with_index do |user, i|
   User.create!(user)
   puts "> Created User ##{i + 1}"
 end
