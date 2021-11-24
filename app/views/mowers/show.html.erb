@@ -1,6 +1,6 @@
 <div class="container mt-2">
-  <div class="row mb-2">
-    <div class= "col-6">
+  <div class="row mb-2 ml-2 mr-2 justify-content-between">
+    <div>
       <h1><%= @mower.title %></h1>
       <h5 class="price">Price per day:</h5>
       <%= @mower.price_per_day %>
@@ -8,8 +8,8 @@
       <h5> Description of the mower:</h5>
       <p> <%= @mower.description %> </p>
     </div>
-    <div class="col-6">
-      <%= cl_image_tag @mower.photo.key %>
+    <div>
+      <%= cl_image_tag @mower.photo.key, class:"image" %>
     </div>
   </div>
   <div class="bg-white rounded p-3 shadow">
