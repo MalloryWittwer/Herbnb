@@ -8,4 +8,7 @@ class User < ApplicationRecord
   validates :user_name, presence: true, length: { maximum: 50 }
   validates :address, presence: true, length: { maximum: 140 }
   validates :email, presence: true, format: { with: URI::MailTo::EMAIL_REGEXP }
+
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
 end

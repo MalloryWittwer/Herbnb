@@ -3,6 +3,13 @@ class MowersController < ApplicationController
 
   def index
     @mowers = Mower.all
+
+    @markers = User.all.geocoded.map do |user|
+      {
+        lat: user.latitude,
+        lng: user.longitude
+      }
+    end
   end
 
   def new
