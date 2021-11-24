@@ -20,7 +20,10 @@ class MowersController < ApplicationController
   end
 
   def update
-    # TODO
+    @mower = Mower.find(params[:id])
+    @mower.update(mower_params)
+
+    redirect_to(user_path(@mower.user))
   end
 
   def show

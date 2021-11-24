@@ -3,9 +3,9 @@
     <h1>Editing your new mower</h1>
       <div>
         <%= simple_form_for @mower do |f| %>
-        <%= f.input :new_title %>
-        <%= f.input :new_description %>
-        <%= f.input :new_price_per_day %>
+        <%= f.input :title %>
+        <%= f.input :description %>
+        <%= f.input :price_per_day %>
         <%= f.input :photo, as: :file %>
         <%= f.submit "Edit my mower", class:"button" %>
       <% end %>
