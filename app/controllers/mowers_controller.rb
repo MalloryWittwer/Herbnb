@@ -7,7 +7,8 @@ class MowersController < ApplicationController
     @markers = User.all.geocoded.map do |user|
       {
         lat: user.latitude,
-        lng: user.longitude
+        lng: user.longitude,
+        image_url: helpers.asset_url("lawn-mower.png")
       }
     end
   end
@@ -36,8 +37,6 @@ class MowersController < ApplicationController
   def show
     @mower = Mower.find(params[:id])
     @booking = Booking.new
-    @user = @mower.user
-    @marker = @user.geocoded? ? [{lat: @user.latitude, lng: @user.longitude}] : []
   end
 
   def destroy

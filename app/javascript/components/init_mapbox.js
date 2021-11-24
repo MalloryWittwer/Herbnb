@@ -1,7 +1,13 @@
 import mapboxgl from "mapbox-gl";
 
-const addMarker = (map, coords) => {
-  new mapboxgl.Marker().setLngLat(coords).addTo(map);
+const addMarker = (marker, map) => {
+  const element = document.createElement("div");
+  element.className = "marker";
+  element.style.backgroundImage = `url('${marker.image_url}')`;
+  element.style.backgroundSize = "contain";
+  element.style.width = "25px";
+  element.style.height = "25px";
+  new mapboxgl.Marker(element).setLngLat([marker.lng, marker.lat]).addTo(map);
 };
 
 const fitMapToMarkers = (map, markers) => {
@@ -22,7 +28,7 @@ const initMapBox = () => {
     // Add markers to map:
     const markers = JSON.parse(mapElement.dataset.markers);
     markers.forEach((marker) => {
-      addMarker(map, [marker.lng, marker.lat]);
+      addMarker(marker, map);
     });
     // Fit map to markers:
     fitMapToMarkers(map, markers);
