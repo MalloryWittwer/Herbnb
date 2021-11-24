@@ -1,10 +1,13 @@
 class BookingsController < ApplicationController
   def edit
-    # TODO
+    @booking = Booking.find(params[:id])
   end
 
   def update
-    # TODO
+    @booking = Booking.find(params[:id])
+    @booking.update(booking_params)
+
+    redirect_to user_path(@booking.user_id)
   end
 
   def new
