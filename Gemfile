@@ -26,7 +26,7 @@ gem 'jbuilder', '~> 2.7'
 # gem 'image_processing', '~> 1.2'
 
 # Protecting API Key numbers
-gem 'dotenv-rails', groups: [:development, :test]
+# gem 'dotenv-rails', groups: [:development, :test]
 
 # Cloudinary photos
 gem 'cloudinary'
