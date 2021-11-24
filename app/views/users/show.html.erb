@@ -6,12 +6,39 @@
     <div class="list-grid">
       <% @user.bookings.each do |booking| %>
         <div class="bg-white rounded shadow mt-2 p-3">
+          <% if booking.mower.photo.key %>
+            <%= cl_image_tag(booking.mower.photo.key, class:"user-cards rounded-top")%>
+          <% else %>
+            <img src="https://media.gerbeaud.net/2020/02/640/tondeuse-electrique-tractee-viking.jpg" alt="Great mower", class="user-cards rounded-top">
+          <% end %>
           <h4><%= booking.mower.title %></h4>
           <h5>Owner: <%= booking.mower.user.user_name %></h5>
           <div>Address: <%= booking.mower.user.address%></div>
           <div>Pickup date: <%= booking.pickup_date %></div>
           <div>Return date: <%= booking.return_date %></div>
           <div>Total price: <%= booking.price %></div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+
+  <% unless @user.mowers.empty? %>
+    <h2>Mowers</h2>
+    <div class="list-grid">
+      <% @user.mowers.each do |mower| %>
+        <div class="bg-white rounded shadow mt-2 p-3">
+          <% if mower.photo.key %>
+            <%= cl_image_tag(booking.mower.photo.key, class:"user-cards rounded-top")%>
+          <% else %>
+            <img src="https://media.gerbeaud.net/2020/02/640/tondeuse-electrique-tractee-viking.jpg" alt="Great mower", class="user-cards rounded-top">
+          <% end %>
+          <h4><%= mower.title %></h4>
+          <div>Address: <%= @user.address%></div>
+          <div>Price per day: <%= mower.price_per_day %></div>
+          <div>Next 2 bookings: TODO</div>
+          <%= link_to "Delete",
+            mower_path(mower.id),
+            method: :delete %>
         </div>
       <% end %>
     </div>
