@@ -29,7 +29,9 @@ class MowersController < ApplicationController
   end
 
   def destroy
-    # TODO
+    @mower = Mower.find(params[:id])
+    @mower.destroy
+    redirect_to user_path(current_user)
   end
 
   private
