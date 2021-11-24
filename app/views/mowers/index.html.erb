@@ -9,7 +9,7 @@
   <div class="map-container">
     <div id="map" data-mapbox-key="<%= ENV["MAPBOX_API_KEY"] %>" data-markers="<%= @markers.to_json %>"></div>
   </div>
-  <div class="index-cards-container">
+  <div class="index-cards-container" style="margin-left: 20px;">
     <% @mowers.each do |mower| %>
       <%= render partial: 'index-card', locals: {mower: mower} %>
     <% end %>
