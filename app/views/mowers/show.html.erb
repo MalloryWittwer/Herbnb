@@ -2,11 +2,11 @@
   <div class="row mb-2 ml-2 mr-2 justify-content-between">
     <div class="text">
       <h1><%= @mower.title %></h1>
-      <h5 class="price">Price per day:</h5>
-      <%= @mower.price_per_day %>
-
+      <h5> Price per day:</h5>
+      <p> <%= @mower.price_per_day %> $$ </p>
       <h5> Description of the mower:</h5>
       <p> <%= @mower.description %> </p>
+      <%= link_to "Back to list", mowers_path, class:"button" %>
     </div>
     <div>
       <%= cl_image_tag @mower.photo.key, class:"image" %>
@@ -18,7 +18,7 @@
     <%= simple_form_for [@mower, @booking] do |f| %>
       <%= f.input :pickup_date %>
       <%= f.input :return_date %>
-      <%= f.submit class: 'btn btn-success' %>
+      <%= f.submit class: 'button' %>
     <% end %>
   </div>
     <div id="map" data-mapbox-key="<%= ENV["MAPBOX_API_KEY"] %>" data-markers="<%= @marker.to_json%>" style="height: 150px; width: auto; margin-top: 20px;"></div>
