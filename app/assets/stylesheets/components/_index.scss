@@ -5,7 +5,13 @@
 @import "mower-index-card";
 @import "index-map";
 @import "user-cards";
+@import "devise-id";
 
-.user-id {
-  width: 50%;
+a {
+  color: inherit; /* blue colors for links too */
+  text-decoration: inherit; /* no underline */
+}
+:hover a {
+  color: inherit; /* blue colors for links too */
+  text-decoration: inherit; /* no underline */
 }
