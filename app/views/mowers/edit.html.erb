@@ -1,0 +1,13 @@
+<div class="containerr">
+  <div class= "form_new">
+    <h1>Editing your new mower</h1>
+      <div>
+        <%= simple_form_for @mower do |f| %>
+        <%= f.input :new_title, placeholder: 'John Deer Q112' %>
+        <%= f.input :new_description, placeholder: 'Amazing mower made with gold' %>
+        <%= f.input :new_price_per_day, placeholder: '150$' %>
+        <%= f.input :photo, as: :file %>
+        <%= f.submit "Edit my mower", class:"button" %>
+      <% end %>
+  </div>
+</div>
