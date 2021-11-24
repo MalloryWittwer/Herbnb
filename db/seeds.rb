@@ -3,21 +3,48 @@ require "open-uri"
 puts "Destroying all Users... 💣"
 User.destroy_all
 
-puts "Creating a seed of 2 fake Users... 🌱"
-[
+users_list = [
   {
     user_name: "Marcel Bower",
-    address: "Paquerettes 15, Lausanne",
+    address: "Av. de la Rapille 2, 1008 Prilly",
     email: "mbower@gmail.com",
     password: "abcdef"
   },
   {
     user_name: "Jane Tarzan",
-    address: "Av. de Beaugiaz 12, Renens",
+    address: "Chem. du Viaduc 14, 1008 Prilly",
     email: "janetarzan@hotmail.com",
-    password: "fedcab"
+    password: "abcdef"
+  },
+  {
+    user_name: "Albert Miller",
+    address: "Rue de Lausanne 52, 1020 Renens",
+    email: "albert.miller@hotmail.fr",
+    password: "abcdef"
+  },
+  {
+    user_name: "Robert Grass",
+    address: "Chem. du Bois-de-Vaux 20, 1007 Lausanne",
+    email: "rgrass.isnice@gmail.com",
+    password: "abcdef"
+  },
+  {
+    user_name: "Jude Liang",
+    address: "Av. du Rond-Point 1, 1006 Lausanne",
+    email: "jliangever@hotmail.com",
+    password: "abcdef"
+  },
+  {
+    user_name: "Arnold Orbach",
+    address: "Rue des Côtes-de-Montbenon 14, 1003 Lausanne",
+    email: "arnold.orbach@gmail.com",
+    password: "abcdef"
   }
-].each_with_index do |user, i|
+]
+
+puts "Creating a seed of #{users_list.size} fake Users... 🌱"
+
+users_list.each_with_index do |user, i|
   User.create!(user)
   puts "> Created User ##{i + 1}"
 end
