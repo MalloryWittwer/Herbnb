@@ -6,7 +6,7 @@
       <p> <%= @mower.price_per_day %> $$ </p>
       <h5> Description of the mower:</h5>
       <p> <%= @mower.description %> </p>
-      <%= link_to "Back to list", mowers_path, class:"button" %>
+      <%= link_to "Back to list", mowers_path, class: 'button' %>
     </div>
     <div>
       <%= cl_image_tag @mower.photo.key, class:"image" %>
