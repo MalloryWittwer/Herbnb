@@ -1,17 +1,3 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://www.jardiner-malin.fr/wp-content/uploads/2019/12/tonte-dimanche.jpg);">>
-  <div class="container">
-    <h1><strong>Welcome to Herbnb</strong>!</h1>
-    <p>Find the lawn mower that suits you!</p>
-  </div>
-</div>
 
-<div class="global-container">
-  <div class="map-container">
-    <div id="map" data-mapbox-key="<%= ENV["MAPBOX_API_KEY"] %>" data-markers="<%= @markers.to_json %>"></div>
-  </div>
-  <div class="index-cards-container" style="margin-left: 20px;">
-    <% @mowers.each do |mower| %>
-      <%= render partial: 'index-card', locals: {mower: mower} %>
-    <% end %>
-  </div>
-</div>
+<%# render partial: 'banner'%>
+<%= render partial: 'map-results'%>
