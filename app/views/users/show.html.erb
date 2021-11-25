@@ -22,6 +22,10 @@
               <div>Pickup date: <%= booking.pickup_date %></div>
               <div>Return date: <%= booking.return_date %></div>
               <div>Total price: <%= booking.price %></div>
+              <%= link_to "Delete",
+                user_path(booking.id),
+                method: :delete %>
+              <%= link_to "Edit", edit_mower_booking_path(booking.mower, booking) %>
             </div>
           </div>
         <% end %>
@@ -65,4 +69,7 @@
       </div>
     </div>
   <% end %>
+  <div class="mt-4">
+    <%= link_to "Back to Home", mowers_path, class:"button" %>
+  </div>
 </div>
