@@ -2,15 +2,18 @@
   <div class="row mb-2 ml-2 mr-2 justify-content-between">
     <div class="text">
       <h1><%= @mower.title %></h1>
-      <h5> Price per day:</h5>
-      <p> <%= @mower.price_per_day %> $$ </p>
-      <h5> Description of the mower:</h5>
+      <p> Price per day:</p>
+      <p class="price"> CHF <%= @mower.price_per_day %> </p>
       <p> <%= @mower.description %> </p>
       <%= link_to "Back to list", mowers_path, class: 'button' %>
     </div>
     <div>
       <%= cl_image_tag @mower.photo.key, class:"image" %>
     </div>
+  </div>
+  </div>
+    <div id="map" data-mapbox-key="<%= ENV["MAPBOX_API_KEY"] %>" data-markers="<%= @marker.to_json %>"
+    style="height: 150px; width: auto; margin-top: 20px; margin-bottom: 20px;"></div>
   </div>
   <div class="bg-white rounded p-3 shadow">
     <h3>Book a mower !</h3>
@@ -20,7 +23,4 @@
       <%= f.input :return_date %>
       <%= f.submit class: 'button' %>
     <% end %>
-  </div>
-    <div id="map" data-mapbox-key="<%= ENV["MAPBOX_API_KEY"] %>" data-markers="<%= @marker.to_json %>" style="height: 150px; width: auto; margin-top: 20px;"></div>
-  </div>
 </div>
