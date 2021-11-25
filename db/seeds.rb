@@ -3,6 +3,17 @@ require 'faker'
 
 user_amount = 10
 mowers_amount = user_amount * 2
+pictures = []
+urls = [
+  "https://source.unsplash.com/random/?lawn-mower",
+  "https://source.unsplash.com/500x300/?lawn-mower",
+  "https://source.unsplash.com/400x200/?lawn-mower",
+  "https://source.unsplash.com/300x200/?lawn-mower",
+  "https://source.unsplash.com/random/?lawn%20mower",
+  "https://source.unsplash.com/500x300/?lawn%20mower",
+  "https://source.unsplash.com/400x200/?lawn%20mower",
+  "https://source.unsplash.com/300x200/?lawn%20mower"
+]
 
 puts "Destroying all Users... 💣"
 User.destroy_all
@@ -162,14 +173,6 @@ puts "Users table now contains #{User.count} users."
   # Andreas
 
   puts "Creating a seed of #{mowers_amount} fake Mowers... 🌱"
-  pictures = []
-  print "Getting images"
-  image_amount = mowers_amount * 3
-  image_amount.times do |i|
-    pictures << URI.open("https://source.unsplash.com/500x300/?lawn%20mower,mower")
-    print "."
-  end
-  puts ""
   mowers_amount.times do |i|
     mower_params = {
       title: "#{Faker::Appliance.brand} lawn mower",
@@ -179,12 +182,12 @@ puts "Users table now contains #{User.count} users."
     mower = Mower.new(mower_params)
     mower.user = User.all.sample
     mower.photo.attach(
-      io: pictures.shuffle!.pop,
+      io: URI.open(urls.sample),
       filename: "mower_seed#{i}.png",
       content_type: 'image/png'
     )
     if mower.save
-      puts "> Created Mower ##{i + 1}"
+      puts "> Creating Mower ##{i + 1}"
     else
       puts "Error while saving Mower ##{i + 1}.."
     end
