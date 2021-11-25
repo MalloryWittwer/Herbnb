@@ -1,0 +1,15 @@
+<div>
+  <div class="row">
+    <div class="col">
+        <div id="map" data-mapbox-key="<%= ENV["MAPBOX_API_KEY"] %>" data-markers="<%= @markers.to_json %>"></div>
+    </div>
+    <div class="col pl-0 pt-2 mr-3">
+      <h3>Mowers available (<%= @mowers.count %>)</h3>
+      <div class="index-cards-container">
+        <% @mowers.each do |mower| %>
+          <%= render partial: 'index-card', locals: {mower: mower} %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
