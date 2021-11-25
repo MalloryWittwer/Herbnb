@@ -8,18 +8,35 @@
   margin-bottom: 10px;
 }
 
+// div containing the text and title
 .text {
   width: 350px;
 }
 
+// danger message
+.danger{
+  color: red;
+  font-size: small;
+  text-align: left;
+}
 
 // price of the mower
 .price {
   font-weight: bold;
-  color: red;
+  color: white;
+  text-align: center;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  background-color: rgb(223, 47, 47);
+  border-radius: 20px;
 }
 
+// description
+.description {
+  font-size: medium;
+  text-align: justify;
+}
+
+//map options
 .map {
   width: auto;
   height: auto;
