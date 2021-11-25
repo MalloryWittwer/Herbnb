@@ -6,3 +6,10 @@ body {
   flex-direction: column;
   justify-content: space-between;
 }
+
+//  Not sure what this "list-grid" is for? - ask Andreas
+.list-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
+}
