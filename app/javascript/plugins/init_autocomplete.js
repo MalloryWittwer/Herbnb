@@ -6,7 +6,6 @@ const initAutocomplete = () => {
     places({ container: addressInput });
   }
   const searchInput = document.getElementById("search-input");
-  console.log("searchInput is: ", searchInput);
   if (searchInput) {
     places({ container: searchInput });
   }

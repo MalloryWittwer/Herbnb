@@ -30,4 +30,5 @@ document.addEventListener("turbolinks:load", () => {
   // initSelect2();
   initMapBox();
   initAutocomplete();
+  console.log("INIT FUNCTIONS RAN");
 });
