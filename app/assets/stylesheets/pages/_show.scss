@@ -36,8 +36,23 @@
   text-align: justify;
 }
 
+//p below the picture
+.choose {
+  text-align: center;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
 //map options
 .map {
   width: auto;
   height: auto;
+  border-radius: 2px;
 }
+
+//icone modification
+.icone {
+  height: 40px;
+  width: 40px;
+}
+
