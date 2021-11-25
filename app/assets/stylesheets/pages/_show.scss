@@ -1,18 +1,43 @@
 // page SHOW of a mower
 
 .image {
-  height: 400px;
-  width: cover;
+  height: auto;
+  max-height: 400px;
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
+// div containing the text and title
 .text {
   width: 350px;
 }
 
+// danger message
+.danger {
+  color: $dark-red;
+  font-size: small;
+  text-align: left;
+}
 
 // price of the mower
 .price {
   font-weight: bold;
-  color: red;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: white;
+  text-align: center;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  background-color: $red;
+  border-radius: 20px;
+}
+
+// description
+.description {
+  font-size: medium;
+  text-align: justify;
+}
+
+//map options
+.map {
+  width: auto;
+  height: auto;
 }
