@@ -4,16 +4,18 @@
   <% else %>
     <img src="https://media.gerbeaud.net/2020/02/640/tondeuse-electrique-tractee-viking.jpg" alt="Great mower">
   <% end %>
-  <div class="card-mower-infos">
-    <div class="card-mower-text-container">
-      <h2><%= mower.title %></h2>
-      <p><%= mower.user.address %></p>
+  <div class="text-container">
+    <div class="title-price">
+      <div>
+        <h2><%= mower.title %></h2>
+      </div>
+      <div class="pricing-container">
+        <h2 class="card-mower-pricing"><strong>$<%= mower.price_per_day.round %></strong> / day</h2>
+      </div>
     </div>
-    <div class="card-mower-pricing-container">
-      <h2 class="card-mower-pricing"><strong>$<%= mower.price_per_day %></strong> / day</h2>
-    </div>
+    <p><%= mower.user.address %></p>
   </div>
   <div class="card-mower-actions">
-    <%= link_to("More info", mower_path(mower), class: "btn-custom") %>
+    <%= link_to("More info", mower_path(mower), class: "button") %>
   </div>
 </div>
