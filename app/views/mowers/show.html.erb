@@ -1,5 +1,5 @@
 <div class="container mt-2">
-  <div class="row mb-2 ml-2 mr-2 justify-content-between">
+  <div class="row mb-2 ml-1 mr-1 justify-content-between">
     <div class="text">
       <h1><%= @mower.title %></h1>
       <p> Price per day:</p>
@@ -11,16 +11,20 @@
       <%= cl_image_tag @mower.photo.key, class:"image" %>
     </div>
   </div>
+  <div class="row">
+    <div class="map col">
+      <div id="map" data-mapbox-key="<%= ENV["MAPBOX_API_KEY"] %>" data-markers="<%= @marker.to_json %>"></div>
+    </div>
+    <div class="col">
+      <div class="bg-white rounded p-3 shadow">
+        <h3>Book a mower !</h3>
+        <h2><%= @mower.title %></h2>
+        <%= simple_form_for [@mower, @booking] do |f| %>
+          <%= f.input :pickup_date %>
+          <%= f.input :return_date %>
+          <%= f.submit class: 'button' %>
+        <% end %>
+      </div>
+    </div>
   </div>
-    <div id="map" data-mapbox-key="<%= ENV["MAPBOX_API_KEY"] %>" data-markers="<%= @marker.to_json %>"
-    style="height: 150px; width: auto; margin-top: 20px; margin-bottom: 20px;"></div>
-  </div>
-  <div class="bg-white rounded p-3 shadow">
-    <h3>Book a mower !</h3>
-    <h2><%= @mower.title %></h2>
-    <%= simple_form_for [@mower, @booking] do |f| %>
-      <%= f.input :pickup_date %>
-      <%= f.input :return_date %>
-      <%= f.submit class: 'button' %>
-    <% end %>
 </div>
