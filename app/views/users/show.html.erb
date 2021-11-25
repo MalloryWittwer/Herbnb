@@ -50,10 +50,8 @@
               <h4><%= link_to mower.title, mower_path(mower) %></h4>
               <div>Address: <%= @user.address%></div>
               <div>Price per day: <%= mower.price_per_day %></div>
-              <%= link_to "Delete",
-                mower_path(mower.id),
-                method: :delete %>
-              <%= link_to "Edit", edit_mower_path(mower) %>
+              <%= link_to "🗑️", mower_path(mower.id), method: :delete, style:"text-decoration: none;" %>
+              <%= link_to "✒️", edit_mower_path(mower), style:"text-decoration: none;" %>
               <% unless mower.bookings.empty? %>
                 <div><strong>Bookings coming up:</strong></div>
                 <%mower.bookings.each do |booking| %>
