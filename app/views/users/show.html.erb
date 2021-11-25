@@ -23,7 +23,7 @@
               <div>Return date: <%= booking.return_date %></div>
               <div>Total price: <%= booking.price %></div>
               <%= link_to "Delete",
-                user_path(booking.id),
+                mower_booking_path(booking.mower, booking),
                 method: :delete %>
               <%= link_to "Edit", edit_mower_booking_path(booking.mower, booking) %>
             </div>
