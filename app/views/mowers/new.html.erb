@@ -7,7 +7,7 @@
         <%= f.input :description, placeholder: 'Amazing mower made with gold' %>
         <%= f.input :price_per_day, placeholder: '150$' %>
         <%= f.input :photo, as: :file %>
-        <%= f.submit "Create my mower", class:"button" %>
+        <%= f.submit "Create my mower", class:"button" %> <%= link_to "Cancel", user_path(@user.id) %>
       <% end %>
   </div>
 </div>

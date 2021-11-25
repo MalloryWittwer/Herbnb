@@ -14,6 +14,7 @@ class MowersController < ApplicationController
 
   def new
     @mower = Mower.new
+    @user = current_user
   end
 
   def create
