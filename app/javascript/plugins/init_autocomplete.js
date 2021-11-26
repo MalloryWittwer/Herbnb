@@ -9,6 +9,11 @@ const initAutocomplete = () => {
   if (searchInput) {
     places({ container: searchInput });
   }
+  const addresseditInput = document.getElementById("edit_address");
+  console.log(addresseditInput);
+  if (addresseditInput) {
+    places({ container: addresseditInput });
+  }
 };
 
 export { initAutocomplete };

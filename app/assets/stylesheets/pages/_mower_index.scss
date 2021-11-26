@@ -14,6 +14,30 @@
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
 }
 
+.search-results {
+  min-height: 100px;
+  background-color: white;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+  border: 2px solid $green;
+  border-radius: 5px;
+  margin-top: 0px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.failure {
+  border: 2px solid $orange;
+}
+
+.search-results h3 {
+  font-size: 24px;
+  padding-bottom: 10px;
+}
+
+.search-results p {
+  padding-top: 10px;
+}
+
 // @media screen and (max-width: 720px) {
 //   .global-container {
 //     display: flex;

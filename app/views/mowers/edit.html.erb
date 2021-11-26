@@ -7,7 +7,7 @@
         <%= f.input :description %>
         <%= f.input :price_per_day %>
         <%= f.input :photo, as: :file %>
-        <%= f.submit "Edit my mower", class:"button" %>
+        <%= f.submit "Edit my mower", class:"button" %> <%= link_to "Cancel", user_path(@user.id) %>
       <% end %>
   </div>
 </div>

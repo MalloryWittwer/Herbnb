@@ -2,6 +2,7 @@ class BookingsController < ApplicationController
   def edit
     @booking = Booking.find(params[:id])
     @mower = @booking.mower
+    @user = current_user
   end
 
   def update
