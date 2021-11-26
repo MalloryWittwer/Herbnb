@@ -1,8 +1,8 @@
-.search-form-control {
+.search-input-container {
   position: relative;
 }
 
-.search-form-control .button {
+.search-input-container .button {
   position: absolute;
   top: 8px;
   bottom: 8px;
@@ -10,14 +10,40 @@
   width: 180px;
 }
 
-.search-form-control .form-control {
-  height: 3.5rem;
+.form-control,
+.form-control-number {
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
   border: 1px solid #e7e7e7;
 }
 
-.search-form-control .form-control:focus {
+.form-control {
+  height: 3.5rem;
+}
+
+.form-control-number {
+  height: 2.5em;
+}
+
+.form-control:focus,
+.form-control-number:focus {
   border: 1px solid #1edd88;
   outline: none !important;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.max-dist-container {
+  display: flex;
+  align-items: center;
+  width: 280px;
+  margin: 10px 0px;
+}
+
+.max-dist-container p {
+  margin-bottom: 0;
+  margin-right: 10px;
+}
+
+.max-dist-container input {
+  width: 90px;
+  border-radius: 5px;
 }
