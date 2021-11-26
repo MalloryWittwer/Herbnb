@@ -2,6 +2,7 @@ class MowersController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
 
   def index
+    @search_location = params[:query]
     nearby_users = find_nearby_users
     @mowers = find_local_mowers(nearby_users)
     @markers = markers_of_nearby_users(nearby_users)
@@ -71,7 +72,7 @@ class MowersController < ApplicationController
   end
 
   def markers_of_nearby_users(nearby_users)
-    
+
     nearby_users.geocoded.select{|user| !user.mowers.empty?}.map do |user|
       {
         lat: user.latitude,

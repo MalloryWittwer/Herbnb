@@ -6,11 +6,10 @@
         <i class="fas fa-search"></i> Start Mowing
       <% end %>
     </div>
-
     <div class="max-dist-container">
-      <p>Max distance (km)</p>
-      <%= number_field_tag(:distance, params[:distance], value: 20, class: "form-control-number", placeholder: "Ex: Lausanne") %>
+      <p id="max-dist-label">Max distance</p>
+      <input type="range" class="form-control-range" id="distance-range" name="distance" min="1" max="500" oninput="this.nextElementSibling.value = this.value + ' km'">
+      <output>250 km</output>
     </div>
-
   </div>
 <% end %>
