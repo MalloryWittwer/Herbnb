@@ -21,13 +21,13 @@ User.destroy_all
 users_list = [
   {
     user_name: "Marcel Bower",
-    address: "777 Brockton Avenue, Abington MA 2351",
+    address: "Rue de Lausanne 52, 1020 Renens",
     email: "mbower@gmail.com",
     password: "abcdef"
   },
   {
     user_name: "Jane Tarzan",
-    address: "250 Hartford Avenue, Bellingham MA 2019",
+    address: "Chem. du Bois-de-Vaux 20, 1007 Lausanne",
     email: "janetarzan@hotmail.com",
     password: "abcdef"
   }
