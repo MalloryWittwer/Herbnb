@@ -30,8 +30,8 @@
         <h3>Book a mower !</h3>
         <h2><%= @mower.title %></h2>
         <%= simple_form_for [@mower, @booking] do |f| %>
-          <%= f.input :pickup_date %>
-          <%= f.input :return_date %>
+          <%= f.input :pickup_date, as: :date, html5: true %>
+          <%= f.input :return_date, as: :date, html5: true %>
           <%= f.submit class: 'button' %>
         <% end %>
       </div>
