@@ -8,4 +8,7 @@
     </div>
   </div>
   <p><%= mower.user.address %></p>
+  <div class="card-mower-actions">
+    <%= link_to("More info", mower_path(mower), class: "button") %>
+  </div>
 <% end %>

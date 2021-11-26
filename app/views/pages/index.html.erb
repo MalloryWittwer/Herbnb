@@ -1,5 +1,7 @@
 <div class="landing-container">
-  <p class="landing-nav">Already signed up? <%= link_to "Login", new_user_session_path, class: "nav-link" %></p>
+  <% unless user_signed_in? %>
+    <p class="landing-nav">Already signed up? <%= link_to "Login", new_user_session_path, class: "nav-link" %></p>
+  <% end %>
   <div class="banner-container">
     <%= render partial: 'banner' %>
   </div>
