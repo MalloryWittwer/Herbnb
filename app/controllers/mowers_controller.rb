@@ -3,13 +3,12 @@ class MowersController < ApplicationController
 
   def index
     @mowers = Mower.all
-
-    @markers = User.all.geocoded.map do |user|
+    @markers = User.all.geocoded.select{|user| !user.mowers.empty?}.map do |user|
       {
         lat: user.latitude,
         lng: user.longitude,
-        info_window: render_to_string(partial: "info_window", locals: { user: user }),
-        image_url: helpers.asset_url("lawn-mower.png")
+        image_url: helpers.asset_url("lawn-mower.png"),
+        info_window: render_to_string(partial: "info_window", locals: {mower: user.mowers.first})
       }
     end
   end

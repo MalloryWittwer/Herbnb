@@ -1,4 +1,4 @@
-.card-mower {
+.index-cards-container .card-mower {
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
@@ -6,6 +6,9 @@
   flex-direction: column;
   justify-content: space-between;
   border-radius: 5px;
+}
+.index-cards-container .card-mower:hover {
+  opacity: 0.9;
 }
 
 .card-mower > img {
@@ -82,4 +85,14 @@
 
 .card-mower .btn-custom:hover {
   opacity: 1;
+}
+
+.mapboxgl-popup-tip .card-mower {
+  overflow: hidden;
+  //background: white;
+  box-shadow: none !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  //border-radius: 5px;
 }
