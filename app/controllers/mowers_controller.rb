@@ -2,15 +2,9 @@ class MowersController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
 
   def index
-    @mowers = Mower.all
-    @markers = User.all.geocoded.select{|user| !user.mowers.empty?}.map do |user|
-      {
-        lat: user.latitude,
-        lng: user.longitude,
-        image_url: helpers.asset_url("lawn-mower.png"),
-        info_window: render_to_string(partial: "info_window", locals: {mower: user.mowers.first})
-      }
-    end
+    nearby_users = find_nearby_users
+    @mowers = find_local_mowers(nearby_users)
+    @markers = markers_of_nearby_users(nearby_users)
   end
 
   def new
@@ -52,5 +46,38 @@ class MowersController < ApplicationController
 
   def mower_params
     params.require(:mower).permit(:price_per_day, :title, :description, :photo)
+  end
+
+  def find_nearby_users
+    if params[:query].present?
+      map_center = Geocoder.search(params[:query]).first.coordinates
+      nearby_users = User.near(map_center, params[:distance].to_f)  # Finds only 4 users instead of 6 even 200 km of Lausanne...
+    else
+      nearby_users = User.all
+    end
+    nearby_users
+  end
+
+  def find_local_mowers(nearby_users)
+    # Unpacks all mowers of nearby users in an array (could be made more efficient)
+    all_mowers = []
+    nearby_users.each do |user|
+      user.mowers.each do |mower|
+        all_mowers << mower
+      end
+    end
+    all_mowers
+  end
+
+  def markers_of_nearby_users(nearby_users)
+    
+    nearby_users.geocoded.select{|user| !user.mowers.empty?}.map do |user|
+      {
+        lat: user.latitude,
+        lng: user.longitude,
+        image_url: helpers.asset_url("lawn-mower.png"),
+        info_window: render_to_string(partial: "info_window", locals: {mower: user.mowers.first})
+      }
+    end
   end
 end
