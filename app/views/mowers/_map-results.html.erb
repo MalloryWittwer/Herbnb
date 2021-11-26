@@ -5,14 +5,17 @@
     </div>
     <div class="col-12 col-sm-6">
       <div class="pl-0 pt-2">
-        <div class="search-results">
-          <p>Your results for: <strong><%= @search_location %></strong>.</p>
-          <% if @mowers.count > 0 %>
+        <% if @mowers.count > 0 %>
+          <div class="search-results">
+            <p>Your results for: <strong><%= @search_location %></strong>.</p>
             <h3>Awesome! We found <strong><%= @mowers.count %></strong> lawn mowers available for you!</h3>
-          <% else %>
+          </div>
+        <% else %>
+          <div class="search-results failure">
+            <p>Your results for: <strong><%= @search_location %></strong>.</p>
             <h3>Oh no 😭! There are no results for that location.</h3>
-          <% end %>
-        </div>
+          </div>
+        <% end %>
         <div class="index-cards-container">
           <% @mowers.each do |mower| %>
             <%= render partial: 'index-card', locals: {mower: mower} %>
