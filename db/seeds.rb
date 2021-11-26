@@ -1,8 +1,8 @@
 require "open-uri"
 require 'faker'
 
-user_amount = 10
-mowers_amount = user_amount * 2
+user_amount = 40
+mowers_amount = user_amount
 pictures = []
 urls = [
   "https://source.unsplash.com/random/?lawn-mower",
