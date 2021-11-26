@@ -32,15 +32,18 @@ const initMapBox = () => {
       container: "map",
       style: "mapbox://styles/mapbox/streets-v9",
     });
-    // Add markers to map:
-    console.log("Adding markers to map...");
-    const markers = JSON.parse(mapElement.dataset.markers);
-    markers.forEach((marker) => {
-      addMarker(marker, map);
+    map.on("load", () => {
+      map.resize();
+      // Add markers to map:
+      console.log("Adding markers to map...");
+      const markers = JSON.parse(mapElement.dataset.markers);
+      markers.forEach((marker) => {
+        addMarker(marker, map);
+      });
+      // Fit map to markers:
+      console.log("Fittig map to markers...");
+      fitMapToMarkers(map, markers);
     });
-    // Fit map to markers:
-    console.log("Fittig map to markers...");
-    fitMapToMarkers(map, markers);
   }
 };
 
