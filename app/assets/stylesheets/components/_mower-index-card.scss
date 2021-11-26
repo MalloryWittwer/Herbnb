@@ -47,6 +47,13 @@
   text-align: right;
 }
 
+.incard-text {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  column-gap: 0.3em;
+}
+
 .card-mower p {
   font-size: 12px;
   opacity: 0.7;

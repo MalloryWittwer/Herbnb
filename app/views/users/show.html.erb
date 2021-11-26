@@ -1,73 +1,63 @@
 <div class="m-3">
-  <h1><%=@user.user_name%></h1>
+  <% unless @user == current_user %>
+   <h1><%=@user.user_name%></h1>
+  <% end %>
+  <% unless @user.mowers.empty? %>
+    <div class="pl-0 pt-2">
+      <h3>My mowers (<%= @user.mowers.count %>)</h3>
+      <div class="index-cards-container">
+        <% @user.mowers.each do |mower| %>
+          <%= render layout: 'shared/mower-card', locals: {mower: mower} do %>
+            <div class="title-price">
+              <div>
+                <h2><%= mower.title %></h2>
+              </div>
+              <div class="pricing-container">
+                <h2 class="card-mower-pricing"><strong>$<%= mower.price_per_day.round %></strong> / day</h2>
+              </div>
+            </div>
+            <div class="card-mower-actions">
+              <%= link_to("More info", mower_path(mower), class: "button") %>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
 
   <% unless @user.bookings.empty? %>
-    <div class="bg-white user-container shadow p-3 my-3">
-      <h2>My bookings</h2>
-
-
-
-      <div class="flex">
+    <div class="pl-0 pt-2">
+      <h3>My bookings (<%= @user.bookings.count %>)</h3>
+      <div class="index-cards-container">
         <% @user.bookings.each do |booking| %>
-          <div class="d-flex bg-white rounded shadow mt-3">
-            <% if booking.mower.photo.key %>
-              <%= cl_image_tag(booking.mower.photo.key, class:"user-cards-img rounded-left")%>
-            <% else %>
-              <img src="https://media.gerbeaud.net/2020/02/640/tondeuse-electrique-tractee-viking.jpg" alt="Great mower", class="user-cards rounded-top">
-            <% end %>
-            <div class="p-3">
-              <h4><%= booking.mower.title %></h4>
-              <strong>Owner: <%= booking.mower.user.user_name %></strong>
-              <div>Address: <%= booking.mower.user.address%></div>
-              <div>Pickup date: <%= booking.pickup_date %></div>
-              <div>Return date: <%= booking.return_date %></div>
-              <div>Total price: <%= booking.price %></div>
-              <%= link_to "Delete",
-                mower_booking_path(booking.mower, booking),
-                method: :delete %>
-              <%= link_to "Edit", edit_mower_booking_path(booking.mower, booking) %>
+          <%= render layout: 'shared/mower-card', locals: {mower: booking.mower} do %>
+            <h2><%= booking.mower.title %></h2>
+            <h2 class="card-mower-pricing"><strong>$<%= booking.price.round %></strong> for <%= (booking.return_date - booking.pickup_date + 1).to_i %> days</h2>
+            <p>Pickup date: <%= booking.pickup_date.strftime('%e %B %Y')%></p>
+            <p>Owner: <%=booking.mower.user.user_name%></p>
+            <div class="incard-text ">
+              <p>Address:</p>
+              <p style="text-align:left"><%= booking.mower.user.address %></p>
             </div>
-          </div>
-        <% end %>
-      </div>
-
-
-    </div>
-  <% end %>
-
-  <% unless @user.mowers.empty? %>
-    <div class="bg-white user-container p-3 my-3">
-      <h2>My mowers</h2>
-      <div class="flex">
-        <% @user.mowers.each do |mower| %>
-          <div class="d-flex bg-white rounded shadow mt-2">
-            <% if mower.photo.key %>
-              <%= cl_image_tag(mower.photo.key, class:"user-cards-img rounded-top")%>
-            <% else %>
-              <img src="https://media.gerbeaud.net/2020/02/640/tondeuse-electrique-tractee-viking.jpg" alt="Great mower", class="user-cards rounded-top">
-            <% end %>
-            <div class="p-3">
-              <h4><%= link_to mower.title, mower_path(mower) %></h4>
-              <div>Address: <%= @user.address%></div>
-              <div>Price per day: <%= mower.price_per_day %></div>
-              <%= link_to "🗑️", mower_path(mower.id), method: :delete, style:"text-decoration: none;" %>
-              <%= link_to "✒️", edit_mower_path(mower), style:"text-decoration: none;" %>
-              <% unless mower.bookings.empty? %>
-                <div><strong>Bookings coming up:</strong></div>
-                <%mower.bookings.each do |booking| %>
-                  <div> <strong>Booking with <%= booking.user.user_name %></strong></div>
-                  <div>Pickup date: <%= booking.pickup_date %></div>
-                  <div>Return date: <%= booking.return_date %></div>
-                  <div>Total price: <%= booking.price %></div>
-                <% end %>
-              <% end %>
-            </div>
-          </div>
+          <% end %>
         <% end %>
       </div>
     </div>
   <% end %>
-  <div class="mt-4">
-    <%= link_to "Back to Home", mowers_path, class:"button" %>
-  </div>
+
+  <% unless @all_bookings.empty? %>
+    <div class="pl-0 pt-2">
+      <h3>Booking requests (<%= @all_bookings.count %>)</h3>
+      <div class="index-cards-container">
+        <% @all_bookings.each do |booking| %>
+          <%= render layout: 'shared/mower-card', locals: {mower: booking.mower} do %>
+            <h2><%= booking.mower.title %></h2>
+            <h2 class="card-mower-pricing"><strong>$<%= booking.price.round %></strong> for <%= (booking.return_date - booking.pickup_date + 1).to_i %> days</h2>
+            <p>Pickup date: <%= booking.pickup_date.strftime('%e %B %Y')%></p>
+            <p>User: <%=booking.user.user_name%></p>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
 </div>
