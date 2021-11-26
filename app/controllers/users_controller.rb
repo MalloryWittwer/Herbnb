@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
+    @all_bookings =  Booking.joins(:mower).where(mowers: {user: @user})
   end
 
   def update

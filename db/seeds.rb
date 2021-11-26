@@ -207,6 +207,35 @@ puts "Users table now contains #{User.count} users."
     end
   end
 
+puts "Creating bookings"
+
+bookings_amount = mowers_amount * 3
+
+bookings_amount.times do |i|
+    pickup_date = Date.today+rand(100)
+    return_date = Date.today+rand(100)
+    while return_date < pickup_date || return_date-pickup_date > 10
+      return_date = Date.today+rand(100)
+    end
+    mower = Mower.all.sample
+    booking_params = {
+      pickup_date: pickup_date,
+      return_date: return_date,
+      price: (mower.price_per_day * (return_date - pickup_date + 1)),
+    }
+    booking = Booking.new(booking_params)
+    booking.mower = mower
+    renter = User.all.sample
+    while renter == mower.user
+      renter = User.all.sample
+    end
+    booking.user = renter
+    if booking.save
+      puts "> Creating Booking ##{i + 1}"
+    else
+      puts "Error while saving Mower ##{i + 1}.."
+    end
+  end
 
 puts "Mowers table now contains #{Mower.count} mowers."
 

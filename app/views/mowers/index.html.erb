@@ -1,2 +1,41 @@
 <%= render partial: 'header' %>
-<%= render partial: 'map-results' %>
+<div>
+  <div class="row m-0">
+    <div class="col-12 col-sm-6 p-0">
+        <div id="map" data-mapbox-key="<%= ENV["MAPBOX_API_KEY"] %>" data-markers="<%= @markers.to_json %>" ></div>
+    </div>
+    <div class="col-12 col-sm-6">
+      <div class="pl-0 pt-2">
+        <% if @mowers.count > 0 %>
+          <div class="search-results">
+            <p>Your results for: <strong><%= @search_location %></strong>.</p>
+            <h3>Awesome! We found <strong><%= @mowers.count %></strong> lawn mowers available for you!</h3>
+          </div>
+        <% else %>
+          <div class="search-results failure">
+            <p>Your results for: <strong><%= @search_location %></strong>.</p>
+            <h3>Oh no 😭! There are no results for that location.</h3>
+          </div>
+        <% end %>
+        <div class="index-cards-container">
+          <% @mowers.each do |mower| %>
+            <%= render layout: 'shared/mower-card', locals: {mower: mower} do %>
+              <div class="title-price">
+                <div>
+                  <h2><%= mower.title %></h2>
+                </div>
+                <div class="pricing-container">
+                  <h2 class="card-mower-pricing"><strong>$<%= mower.price_per_day.round %></strong> / day</h2>
+                </div>
+              </div>
+              <p><%= mower.user.address %></p>
+              <div class="card-mower-actions">
+                <%= link_to("More info", mower_path(mower), class: "button") %>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
