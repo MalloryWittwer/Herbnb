@@ -17,7 +17,8 @@
               </div>
             </div>
             <div class="card-mower-actions">
-              <%= link_to("More info", mower_path(mower), class: "button") %>
+              <%= link_to("Edit", edit_mower_path(mower), class: "button edit") %>
+              <%= link_to("Delete", mower_path(mower.id), method: :delete, class: "button delete") %>
             </div>
           <% end %>
         <% end %>
@@ -34,10 +35,9 @@
             <h2><%= booking.mower.title %></h2>
             <h2 class="card-mower-pricing"><strong>$<%= booking.price.round %></strong> for <%= (booking.return_date - booking.pickup_date + 1).to_i %> days</h2>
             <p>Pickup date: <%= booking.pickup_date.strftime('%e %B %Y')%></p>
-            <p>Owner: <%=booking.mower.user.user_name%></p>
-            <div class="incard-text ">
-              <p>Address:</p>
-              <p style="text-align:left"><%= booking.mower.user.address %></p>
+            <div class="card-mower-actions">
+              <%= link_to("Edit", edit_mower_booking_path(booking.mower, booking), class: "button edit") %>
+              <%= link_to("Delete", mower_booking_path(booking.mower, booking), method: :delete, class: "button delete") %>
             </div>
           <% end %>
         <% end %>
@@ -55,6 +55,8 @@
             <h2 class="card-mower-pricing"><strong>$<%= booking.price.round %></strong> for <%= (booking.return_date - booking.pickup_date + 1).to_i %> days</h2>
             <p>Pickup date: <%= booking.pickup_date.strftime('%e %B %Y')%></p>
             <p>User: <%=booking.user.user_name%></p>
+            <div class="card-mower-actions">
+            </div>
           <% end %>
         <% end %>
       </div>
