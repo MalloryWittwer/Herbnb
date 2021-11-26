@@ -20,6 +20,7 @@ class MowersController < ApplicationController
 
   def edit
     @mower = Mower.find(params[:id])
+    @user = current_user
   end
 
   def update
