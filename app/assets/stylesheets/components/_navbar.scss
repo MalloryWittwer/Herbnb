@@ -1,7 +1,6 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: white;
-  
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -10,4 +9,29 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+}
+
+.landing-nav {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  opacity: 0.9;
+}
+
+.landing-nav a {
+  display: block;
+  background-color: $green;
+  border-radius: 2em;
+  margin-left: 10px;
+}
+
+.landing-nav a:hover {
+  color: white;
+  opacity: 1;
+  background-color: #9f3d40;
 }
