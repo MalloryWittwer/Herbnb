@@ -14,8 +14,8 @@
 }
 
 // danger message
-.danger{
-  color: red;
+.danger {
+  color: $dark-red;
   font-size: small;
   text-align: left;
 }
@@ -25,8 +25,8 @@
   font-weight: bold;
   color: white;
   text-align: center;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  background-color: rgb(223, 47, 47);
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  background-color: $red;
   border-radius: 20px;
 }
 

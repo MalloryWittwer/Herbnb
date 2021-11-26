@@ -27,16 +27,19 @@ const initMapBox = () => {
   if (mapElement) {
     const apiKey = mapElement.dataset.mapboxKey;
     mapboxgl.accessToken = apiKey;
+    console.log("Creating map...");
     const map = new mapboxgl.Map({
       container: "map",
       style: "mapbox://styles/mapbox/streets-v9",
     });
     // Add markers to map:
+    console.log("Adding markers to map...");
     const markers = JSON.parse(mapElement.dataset.markers);
     markers.forEach((marker) => {
       addMarker(marker, map);
     });
     // Fit map to markers:
+    console.log("Fittig map to markers...");
     fitMapToMarkers(map, markers);
   }
 };
