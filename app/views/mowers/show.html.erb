@@ -1,10 +1,8 @@
 <div class="container mt-2">
-  <div class="row mb-2 ml-1 mr-1 justify-content-between ">
-    <div class="text">
+  <div class="row mb-2 justify-content-between">
+    <div class="text mr-3 col-lg-6 col-md-12">
       <h1><%= @mower.title %></h1>
-      <div>
         <p class="price"> CHF <%= @mower.price_per_day %> per Day</p>
-      </div>
       <div class="description">
         <p> <%= @mower.description %> </p>
           <p class="danger">
@@ -19,9 +17,8 @@
         <%= link_to "Back to list", mowers_path, class: 'button' %>
       </div>
     </div>
-    <div>
+    <div class="image_container col-lg-6 col-md-12">
       <%= cl_image_tag @mower.photo.key, class:"image shadow rounded" %>
-        <img src="https://i.pravatar.cc/50", class="avatar card_top"/>
     </div>
   </div>
   <div class="row">
