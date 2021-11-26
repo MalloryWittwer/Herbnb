@@ -16,7 +16,18 @@ urls = [
   "https://cdn.pixabay.com/photo/2019/02/15/22/55/robot-mower-3999479_1280.jpg",
   "https://cdn.pixabay.com/photo/2017/03/08/19/40/lawn-mower-2127637_1280.jpg",
   "https://cdn.pixabay.com/photo/2014/04/10/10/09/lawn-mower-320799_1280.jpg",
-  "https://cdn.pixabay.com/photo/2019/04/20/11/17/honda-4141520_1280.jpg"
+  "https://cdn.pixabay.com/photo/2019/04/20/11/17/honda-4141520_1280.jpg",
+  "https://upload.wikimedia.org/wikipedia/commons/6/60/Ride-on_lawn_mower_Rhodes.jpg",
+  "https://cdn.pixabay.com/photo/2017/06/22/13/01/lawn-mower-2430725_1280.jpg",
+  "https://i.ytimg.com/vi/f8vJrELgTM4/maxresdefault.jpg",
+  "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/2007_swifts_creek_lawnmower_races01.jpg/1200px-2007_swifts_creek_lawnmower_races01.jpg",
+  "https://www.greenlabcenter.fr/wp-content/uploads/2018/08/tracteur-tondeuse-mulching.jpg",
+  "https://www.ctendance.fr/wp-content/uploads/2020/05/usage-tracteur-tondeuse.jpg",
+  "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/toro-21382-lawn-mower-0007-1618244570.jpg",
+  "https://www.einhell.ch/shop/media/catalog/category/einhell-garden-garden-tools-lawn-mowers-keyvisual-mobile.jpg",
+  "https://thearchitecturedesigns.com/wp-content/uploads/2020/06/lawn-mower-4-759x500.jpg",
+  "https://www.carscoops.com/wp-content/uploads/2019/06/d4d3c18a-honda-mean-mower-v2-record-0.jpg",
+  "https://cdn.protoolreviews.com/wp-content/uploads/2020/10/EGO-Lawn-Mower-Reviews-EGO-Z6-Zero-Turn-Lawn-Mower-05.jpg"
 ]
 
 puts "Destroying all Users... 💣"
@@ -98,7 +109,6 @@ fake_adresses = [
   "Le Château 1, 1315 La Sarraz",
   "Rue de la Tournelle 48, 1350 Orbe",
   "Route de Cheseaux 1, 1400 Yverdon-les-Bains",
-  "Rue du Moulin 1, 1424 Champagne",
 ]
 
 user_amount.times do
