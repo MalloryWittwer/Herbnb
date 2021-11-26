@@ -1,13 +1,13 @@
 .header {
   background-color: rgb(235, 235, 235);
-  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    url("banner-bg.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("grass.jpg");
   background-size: cover;
   background-position: center;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 300px;
+  height: 200px;
   margin-bottom: 10px;
 }
 

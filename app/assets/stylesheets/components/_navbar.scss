@@ -35,3 +35,12 @@
   opacity: 1;
   background-color: #9f3d40;
 }
+
+#logo-home:hover {
+  text-decoration: none;
+  color: $green;
+}
+
+#login-link:hover {
+  color: $green;
+}
